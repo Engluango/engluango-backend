@@ -21,7 +21,7 @@ jobs:
         run: pwd
 
       - name: change directory
-        run: cd ./migrator_publish
+        run: cd migrator_publish
 
       - name: PWD
         run: pwd
@@ -40,4 +40,4 @@ jobs:
             DEBUG=True
             COUNT=1
           include: |
-            ./migrator_publish/*
+            *
