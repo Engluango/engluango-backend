@@ -17,6 +17,15 @@ jobs:
       - name: Publish Migrator
         run: dotnet publish ./src/Migrator/Migrator.csproj --output migrator_publish
 
+      -name: PWD
+        run: pwd
+      
+      -name: change directory
+        run: cd ./migrator_publish
+
+      -name: PWD
+        run: pwd
+
       - name: Deploy Migrator Function
         id: sls-func
         uses: yc-actions/yc-sls-function@v2
