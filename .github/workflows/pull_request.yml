@@ -36,6 +36,6 @@ jobs:
           runtime: "dotnet8"
           memory: "256Mb"
           entrypoint: "Migrator.Handler"
-          environment: |
-            ConnectionStrings__Postgres=${{ secrets.POSTGRES_CONNECTION_STRING }}
           source-root: "migrator_publish"
+          secrets: |
+            ConnectionStrings__Postgres=${{ secrets.YC_SECRET_ID_POSTGRES }}/${{ secrets.YC_SECRET_VERSION_POSTGRES }}/${{ secrets.YC_SECRET_KEY_POSTGRES }}
