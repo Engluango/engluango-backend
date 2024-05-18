@@ -33,4 +33,4 @@ jobs:
           network-id: "enpa5rmuidjf5tpn04me"
           log-level: "info"
           secrets: |
-            ConnectionStringss__Postgres=${{ secrets.YC_SECRET_ID_POSTGRES }}/${{ secrets.YC_SECRET_VERSION_POSTGRES }}/${{ secrets.YC_SECRET_KEY_POSTGRES }}
+            ConnectionStrings__Postgres=${{ secrets.YC_SECRET_ID_POSTGRES }}/${{ secrets.YC_SECRET_VERSION_POSTGRES }}/${{ secrets.YC_SECRET_KEY_POSTGRES }}
