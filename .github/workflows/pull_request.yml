@@ -35,7 +35,7 @@ jobs:
           function-name: "migrator-function"
           runtime: "dotnet8"
           memory: "256Mb"
-          entrypoint: "migrator_publish/Migrator.Handler"
+          entrypoint: "Migrator.Handler"
           environment: |
             DEBUG=True
             COUNT=1
