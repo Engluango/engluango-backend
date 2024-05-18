@@ -39,5 +39,4 @@ jobs:
           environment: |
             DEBUG=True
             COUNT=1
-          include: |
-            *
+          source-root: "migrator_publish"
