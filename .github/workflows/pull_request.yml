@@ -17,13 +17,13 @@ jobs:
       - name: Publish Migrator
         run: dotnet publish ./src/Migrator/Migrator.csproj --output migrator_publish
 
-      -name: PWD
+      - name: PWD
         run: pwd
-      
-      -name: change directory
+
+      - name: change directory
         run: cd ./migrator_publish
 
-      -name: PWD
+      - name: PWD
         run: pwd
 
       - name: Deploy Migrator Function
