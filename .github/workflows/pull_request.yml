@@ -40,6 +40,4 @@ jobs:
             DEBUG=True
             COUNT=1
           include: |
-            migrator_publish/*
-          exclude: |
-            migrator_publish
+            ./migrator_publish/*
