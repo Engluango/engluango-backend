@@ -22,6 +22,7 @@ jobs:
         uses: yc-actions/yc-sls-function@v2
         with:
           yc-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS }}
+          bucket: ${{ secrets.BUCKET }}
           folder-id: ${{ secrets.YANDEX_FOLDER_ID }}
           function-name: "migrator-function"
           runtime: "dotnet8"
