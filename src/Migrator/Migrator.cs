@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
+using FluentMigrator.Runner;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Migrator;
 
@@ -8,14 +10,11 @@ public class Handler
 {
     public string FunctionHandler(byte[] a) 
     {
-        var currentDirectory = Directory.GetCurrentDirectory();
+        var serviceProvider = MigratorStartup.Setup();
+        var migrationRunner = serviceProvider.GetRequiredService<IMigrationRunner>();
 
-        var config = new ConfigurationBuilder()
-            .SetBasePath(currentDirectory)
-            .AddJsonFile("appsettings.json")
-            .AddEnvironmentVariables()
-            .Build();
+        migrationRunner.MigrateUp();
 
-        return config.GetConnectionString("Postgres") ?? "empty";
+        return "Successful migration";
     }
 }
