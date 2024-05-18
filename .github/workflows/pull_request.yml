@@ -37,6 +37,5 @@ jobs:
           memory: "256Mb"
           entrypoint: "Migrator.Handler"
           environment: |
-            DEBUG=True
-            COUNT=1
+            ConnectionStrings__Postgres=example
           source-root: "migrator_publish"

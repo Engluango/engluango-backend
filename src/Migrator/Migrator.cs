@@ -16,6 +16,6 @@ public class Handler
             .AddEnvironmentVariables()
             .Build();
 
-        return config["config"] ?? "empty";
+        return config.GetConnectionString("Postgres") ?? "empty";
     }
 }
