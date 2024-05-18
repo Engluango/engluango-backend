@@ -17,15 +17,6 @@ jobs:
       - name: Publish Migrator
         run: dotnet publish ./src/Migrator/Migrator.csproj --output migrator_publish
 
-      - name: PWD
-        run: pwd
-
-      - name: change directory
-        run: cd migrator_publish
-
-      - name: PWD
-        run: echo 'sdddsdc'
-
       - name: Deploy Migrator Function
         id: sls-func
         uses: yc-actions/yc-sls-function@v2
@@ -38,5 +29,7 @@ jobs:
           entrypoint: "Migrator.Handler"
           source-root: "migrator_publish"
           service-account: "ajednk5p34k0k6msrjuk"
+          network-id: "enpa5rmuidjf5tpn04me"
+          log-level: "info"
           secrets: |
             ConnectionStrings__Postgres=${{ secrets.YC_SECRET_ID_POSTGRES }}/${{ secrets.YC_SECRET_VERSION_POSTGRES }}/${{ secrets.YC_SECRET_KEY_POSTGRES }}
