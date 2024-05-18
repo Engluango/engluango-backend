@@ -24,7 +24,7 @@ jobs:
         run: cd migrator_publish
 
       - name: PWD
-        run: echo 'sdddsdc'
+        run: echo 'sdddshdc'
 
       - name: Deploy Migrator Function
         id: sls-func
