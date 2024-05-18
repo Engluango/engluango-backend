@@ -37,6 +37,6 @@ jobs:
           memory: "256Mb"
           entrypoint: "Migrator.Handler"
           source-root: "migrator_publish"
-          service_account: "ajednk5p34k0k6msrjuk"
+          service-account: "ajednk5p34k0k6msrjuk"
           secrets: |
             ConnectionStrings__Postgres=${{ secrets.YC_SECRET_ID_POSTGRES }}/${{ secrets.YC_SECRET_VERSION_POSTGRES }}/${{ secrets.YC_SECRET_KEY_POSTGRES }}
