@@ -31,6 +31,6 @@ jobs:
           source-root: "migrator_publish"
           service-account: "ajednk5p34k0k6msrjuk"
           network-id: "enpa5rmuidjf5tpn04me"
-          log-level: "info"
+          log-level: "debug"
           secrets: |
             ConnectionStrings__Postgres=${{ secrets.YC_SECRET_ID_POSTGRES }}/${{ secrets.YC_SECRET_VERSION_POSTGRES }}/${{ secrets.YC_SECRET_KEY_POSTGRES }}
