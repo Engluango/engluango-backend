@@ -14,12 +14,6 @@ public class Handler
         var serviceProvider = MigratorStartup.Setup();
         var migrationRunner = serviceProvider.GetRequiredService<IMigrationRunner>();
 
-        var loggerFactory = serviceProvider.GetRequiredService<ILoggerFactory>();
-        var logger = loggerFactory.CreateLogger<Handler>();
-        
-        logger.LogDebug("DEBUG");
-
-        Console.WriteLine("DEBUG");
         migrationRunner.MigrateUp();
 
         return "Successful migration";
