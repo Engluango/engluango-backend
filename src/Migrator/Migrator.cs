@@ -13,6 +13,7 @@ public class Handler
         var serviceProvider = MigratorStartup.Setup();
         var migrationRunner = serviceProvider.GetRequiredService<IMigrationRunner>();
 
+        Console.WriteLine("DEBUG");
         migrationRunner.MigrateUp();
 
         return "Successful migration";
