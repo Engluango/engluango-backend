@@ -38,6 +38,7 @@ public sealed class MigratorStartup
         var connectionString = config.GetConnectionString("Postgres");
 
         services
+            .AddSingleton<IConventionSet>(new DefaultConventionSet("engluango", null))
             .AddFluentMigratorCore()
             .ConfigureRunner(rb => rb
                 .AddPostgres()
