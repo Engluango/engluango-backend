@@ -26,7 +26,6 @@ public sealed class MigratorStartup
 
         var config = new ConfigurationBuilder()
             .SetBasePath(currentDirectory)
-            .AddJsonFile("appsettings.json")
             .AddEnvironmentVariables()
             .Build();
 
