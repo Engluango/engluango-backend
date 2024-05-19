@@ -1,4 +1,5 @@
 using FluentMigrator.Runner;
+using FluentMigrator.Runner.Conventions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -37,6 +38,7 @@ public sealed class MigratorStartup
         var connectionString = config.GetConnectionString("Postgres");
 
         services
+            .AddSingleton<IConventionSet>(new DefaultConventionSet("engluango", null))
             .AddFluentMigratorCore()
             .ConfigureRunner(rb => rb
                 .AddPostgres()
