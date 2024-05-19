@@ -1,0 +1,36 @@
+name: Pull Request
+
+on: pull_request
+
+jobs:
+  deploy-migrator:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Publish Migrator
+        run: dotnet publish ./src/Migrator/Migrator.csproj --output migrator_publish
+
+      - name: Deploy Migrator Function
+        id: sls-func
+        uses: yc-actions/yc-sls-function@v2
+        with:
+          yc-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS }}
+          bucket: ${{ secrets.BUCKET }}
+          folder-id: ${{ secrets.YANDEX_FOLDER_ID }}
+          function-name: "migrator-function"
+          runtime: "dotnet8"
+          memory: "256Mb"
+          entrypoint: "Migrator.Handler"
+          source-root: "migrator_publish"
+          service-account: "ajednk5p34k0k6msrjuk"
+          network-id: "enpa5rmuidjf5tpn04me"
+          log-level: "info"
+          secrets: |
+            ConnectionStrings__Postgres=${{ secrets.YC_SECRET_ID_POSTGRES }}/${{ secrets.YC_SECRET_VERSION_POSTGRES }}/${{ secrets.YC_SECRET_KEY_POSTGRES }}
